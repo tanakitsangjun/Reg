@@ -12,7 +12,7 @@ namespace Reg.ViewModel;
 public partial class LoginVM : ObservableObject
 {
     [ObservableProperty]
-    string username = "";
+    string email = "";
     [ObservableProperty]
     string password = "";
 
@@ -32,14 +32,14 @@ public partial class LoginVM : ObservableObject
     [RelayCommand]
     async Task Login()
     {
-        if (string.IsNullOrEmpty(Username) || string.IsNullOrEmpty(Password))
+        if (string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(Password))
         {
-            await Application.Current.MainPage.DisplayAlert("Error", "Please enter both StudentID and Password", "OK");
+            await Application.Current.MainPage.DisplayAlert("Error", "Please enter both Email and Password", "OK");
             return;
         }
 
         await DataService.LoadInitialData();
-        var student = DataService.Students.FirstOrDefault(s => s.student_id == Username && s.password == Password);
+        var student = DataService.Students.FirstOrDefault(s => s.email.ToLower() == Email.ToLower() && s.password == Password);
         
         if (student != null)
         {
@@ -52,7 +52,7 @@ public partial class LoginVM : ObservableObject
         }
         else
         {
-            await Application.Current.MainPage.DisplayAlert("Error", "Invalid credentials", "OK");
+            await Application.Current.MainPage.DisplayAlert("Error", "Invalid email or password", "OK");
         }
     }
 }
