@@ -1,0 +1,184 @@
+{
+  "courses": [
+      {
+          "course_id": "1204302",
+          "course_name": "Algorithm Analysis and Design",
+          "year": 2024,
+          "term": 1,
+          "credits": 3,
+          "prerequisites": [],
+          "instructor": "Dr. Emily Johnson"
+      },
+      {
+          "course_id": "1204102",
+          "course_name": "Data Structures and Algorithms",
+          "year": 2024,
+          "term": 3,
+          "credits": 3,
+          "prerequisites": [],
+          "instructor": "Dr. Jane Smith"
+      },
+      {
+          "course_id": "1204103",
+          "course_name": "Database Systems",
+          "year": 2024,
+          "term": 3,
+          "credits": 3,
+          "prerequisites": [],
+          "instructor": "Dr. Emily Johnson"
+      },
+      {
+          "course_id": "1204201",
+          "course_name": "Operating Systems",
+          "year": 2024,
+          "term": 2,
+          "credits": 3,
+          "prerequisites": [],
+          "instructor": "Dr. Robert Brown"
+      },
+      {
+          "course_id": "1204501",
+          "course_name": "Computer Networks",
+          "year": 2024,
+          "term": 2,
+          "credits": 3,
+          "prerequisites": [],
+          "instructor": "Dr. Alice Green"
+      },
+      {
+          "course_id": "1204602",
+          "course_name": "Artificial Intelligence",
+          "year": 2024,
+          "term": 1,
+          "credits": 3,
+          "prerequisites": [],
+          "instructor": "Dr. Michael Lee"
+      },
+      {
+          "course_id": "1204703",
+          "course_name": "Machine Learning",
+          "year": 2024,
+          "term": 3,
+          "credits": 3,
+          "prerequisites": [],
+          "instructor": "Dr. Sophia Martinez"
+      },
+      {
+          "course_id": "1204804",
+          "course_name": "Cybersecurity",
+          "year": 2024,
+          "term": 2,
+          "credits": 3,
+          "prerequisites": [],
+          "instructor": "Dr. Daniel Wilson"
+      },
+      {
+          "course_id": "1204905",
+          "course_name": "Software Engineering",
+          "year": 2024,
+          "term": 3,
+          "credits": 3,
+          "prerequisites": [],
+          "instructor": "Dr. Laura White"
+      },
+      {
+          "course_id": "1204006",
+          "course_name": "Computer Graphics",
+          "year": 2024,
+          "term": 1,
+          "credits": 3,
+          "prerequisites": [],
+          "instructor": "Dr. Henry Adams"
+      },
+      {
+          "course_id": "1205007",
+          "course_name": "Embedded Systems",
+          "year": 2024,
+          "term": 2,
+          "credits": 3,
+          "prerequisites": [],
+          "instructor": "Dr. Olivia Taylor"
+      },
+      {
+          "course_id": "1205108",
+          "course_name": "Computer Vision",
+          "year": 2024,
+          "term": 3,
+          "credits": 3,
+          "prerequisites": [],
+          "instructor": "Dr. Ethan Carter"
+      },
+      {
+          "course_id": "1205209",
+          "course_name": "Cloud Computing",
+          "year": 2024,
+          "term": 1,
+          "credits": 3,
+          "prerequisites": [],
+          "instructor": "Dr. William Harris"
+      },
+      {
+          "course_id": "1205310",
+          "course_name": "Human-Computer Interaction",
+          "year": 2024,
+          "term": 2,
+          "credits": 3,
+          "prerequisites": [],
+          "instructor": "Dr. Natalie Scott"
+      },
+      {
+          "course_id": "1205411",
+          "course_name": "Blockchain Technology",
+          "year": 2024,
+          "term": 3,
+          "credits": 3,
+          "prerequisites": [],
+          "instructor": "Dr. Benjamin Turner"
+      },
+      {
+          "course_id": "1205512",
+          "course_name": "Quantum Computing",
+          "year": 2024,
+          "term": 1,
+          "credits": 3,
+          "prerequisites": [],
+          "instructor": "Dr. Charlotte Walker"
+      },
+      {
+          "course_id": "1205613",
+          "course_name": "Big Data Analytics",
+          "year": 2024,
+          "term": 2,
+          "credits": 3,
+          "prerequisites": [],
+          "instructor": "Dr. Jack Thompson"
+      },
+      {
+          "course_id": "1205714",
+          "course_name": "Game Development",
+          "year": 2024,
+          "term": 3,
+          "credits": 3,
+          "prerequisites": [],
+          "instructor": "Dr. Emily Roberts"
+      },
+      {
+          "course_id": "1205815",
+          "course_name": "Robotics",
+          "year": 2024,
+          "term": 1,
+          "credits": 3,
+          "prerequisites": [],
+          "instructor": "Dr. Daniel Evans"
+      },
+      {
+          "course_id": "1205916",
+          "course_name": "Ethical Hacking",
+          "year": 2024,
+          "term": 2,
+          "credits": 3,
+          "prerequisites": [],
+          "instructor": "Dr. Amanda Lewis"
+      }
+  ]
+}

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:Reg.Model"
+             xmlns:viewmodel="clr-namespace:Reg.ViewModel"
+             x:Class="Reg.Pages.HomePage"
+             x:DataType="viewmodel:HomepageVM"
+             BackgroundColor="#2C3E50"
+             Title="Student Profile">
+
+    <Grid RowDefinitions="Auto,*" ColumnDefinitions="7*,3*">
+        <!-- Profile Card (Span both columns) -->
+        <Border Grid.Row="0" Grid.ColumnSpan="2" Margin="15,15,15,5" Padding="20" 
+                BackgroundColor="#34495E" StrokeShape="RoundRectangle 20"
+                Stroke="#FFD700">
+            <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto">
+                <!-- Profile Image -->
+                <Border Grid.RowSpan="3" WidthRequest="100" HeightRequest="100" 
+                        StrokeShape="RoundRectangle 50" Padding="0"
+                        Stroke="#FFD700" StrokeThickness="2"
+                        Margin="0,0,15,0">
+                    <Image Source="{Binding CurrentStudent.img_url}"
+                           Aspect="AspectFill"/>
+                </Border>
+
+                <!-- Student Details -->
+                <VerticalStackLayout Grid.Column="1" Grid.Row="0">
+                    <Label Text="{Binding CurrentStudent.student_id}" 
+                           FontSize="16" TextColor="#FFD700"/>
+                    <Label Text="{Binding CurrentStudent.first_name}"
+                           FontSize="24" FontAttributes="Bold" TextColor="White"/>
+                    <Label Text="{Binding CurrentStudent.last_name}"
+                           FontSize="24" FontAttributes="Bold" TextColor="White"/>
+                </VerticalStackLayout>
+
+                <HorizontalStackLayout Grid.Column="1" Grid.Row="1" Spacing="15">
+                    <Label Text="{Binding CurrentStudent.faculty}"
+                           FontSize="14" TextColor="#BDC3C7"/>
+                    <Label Text="{Binding CurrentStudent.major}"
+                           FontSize="14" TextColor="#BDC3C7"/>
+                </HorizontalStackLayout>
+
+                <Label Grid.Column="1" Grid.Row="2" 
+                       Text="{Binding CurrentStudent.gpa, StringFormat='GPA: {0:F2}'}"
+                       FontSize="20" FontAttributes="Bold" TextColor="#FFD700"/>
+            </Grid>
+        </Border>
+
+        <!-- Enrolled Courses (Left side - 70%) -->
+        <Border Grid.Row="1" Grid.Column="0" Margin="15,5,5,15" 
+                BackgroundColor="#34495E" 
+                StrokeShape="RoundRectangle 20" 
+                Stroke="#FFD700"
+                Padding="20">
+            <Grid RowDefinitions="Auto,Auto,*">
+                <Label Text="Enrolled Courses" 
+                       TextColor="White"
+                       FontSize="24" FontAttributes="Bold"/>
+
+                <!-- Term Selector -->
+                <ScrollView Grid.Row="1" Orientation="Horizontal" Margin="0,15">
+                    <HorizontalStackLayout Spacing="10">
+                        <CollectionView ItemsSource="{Binding AvailableTerms}"
+                                      HeightRequest="40">
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Horizontal" ItemSpacing="10"/>
+                            </CollectionView.ItemsLayout>
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate x:DataType="x:Int32">
+                                    <Button Text="{Binding StringFormat='Term {0}'}"
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomepageVM}}, Path=SelectTermCommand}"
+                                            CommandParameter="{Binding .}"
+                                            BackgroundColor="{Binding ., Converter={StaticResource TermButtonColorConverter}, 
+                                                ConverterParameter={Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomepageVM}}, 
+                                                Path=SelectedTerm}}"
+                                            TextColor="White"
+                                            CornerRadius="20"
+                                            Padding="20,0"/>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </HorizontalStackLayout>
+                </ScrollView>
+
+                <!-- Enrolled Course List -->
+                <CollectionView Grid.Row="2" 
+                              ItemsSource="{Binding CurrentTermCourses}"
+                              EmptyView="No courses for this term">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:CourseEnrolled">
+                            <Border Margin="0,5" Padding="15" 
+                                    StrokeShape="RoundRectangle 15"
+                                    BackgroundColor="#2C3E50"
+                                    Stroke="#FFD700">
+                                <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="*,Auto">
+                                    <!-- Course Info -->
+                                    <Label Grid.Row="0" Grid.Column="0"
+                                           Text="{Binding course_name}"
+                                           TextColor="White"
+                                           FontAttributes="Bold"/>
+                                    <Label Grid.Row="0" Grid.Column="1"
+                                           Text="{Binding course_id}"
+                                           TextColor="#FFD700"/>
+                                    <HorizontalStackLayout Grid.Row="1" Grid.Column="0"
+                                                         Spacing="15">
+                                        <Label Text="{Binding instructor}"
+                                               TextColor="#BDC3C7"/>
+                                        <Label Text="{Binding credits, StringFormat='{0} credits'}"
+                                               TextColor="#BDC3C7"/>
+                                    </HorizontalStackLayout>
+                                    <Label Grid.Row="1" Grid.Column="1"
+                                           Text="{Binding grade}"
+                                           FontAttributes="Bold"
+                                           TextColor="#FFD700"/>
+                                    
+                                    <!-- Withdraw Button - Only show for Term 3 -->
+                                    <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                                            Text="Withdraw"
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomepageVM}}, Path=WithdrawCourseCommand}"
+                                            CommandParameter="{Binding}"
+                                            Margin="0,10,0,0"
+                                            BackgroundColor="#FF5252"
+                                            TextColor="White"
+                                            HeightRequest="35"
+                                            CornerRadius="17"
+                                            IsVisible="{Binding term, Converter={StaticResource IntEqualsConverter}, ConverterParameter=3}"/>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+        </Border>
+
+        <!-- Available Courses (Right side - 30%) -->
+        <Border Grid.Row="1" Grid.Column="1" Margin="5,5,15,15"
+                BackgroundColor="#34495E" 
+                StrokeShape="RoundRectangle 20" 
+                Stroke="#FFD700"
+                Padding="20">
+            <Grid RowDefinitions="Auto,*">
+                <Label Text="Available Courses (Term 3)" 
+                       TextColor="White"
+                       FontSize="24" FontAttributes="Bold"/>
+
+                <CollectionView Grid.Row="1" 
+                              ItemsSource="{Binding AvailableCourses}"
+                              EmptyView="No available courses">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:CourseEnrolled">
+                            <Border Margin="0,5" Padding="15"
+                                    BackgroundColor="#2C3E50"
+                                    StrokeShape="RoundRectangle 15"
+                                    Stroke="#FFD700">
+                                <Grid RowDefinitions="Auto,Auto,Auto,Auto">
+                                    <!-- Course Name and ID -->
+                                    <Label Grid.Row="0"
+                                           Text="{Binding course_name}"
+                                           TextColor="White"
+                                           FontAttributes="Bold"/>
+                                    <Label Grid.Row="1"
+                                           Text="{Binding course_id}"
+                                           TextColor="#FFD700"/>
+                                    
+                                    <!-- Additional Details -->
+                                    <VerticalStackLayout Grid.Row="2" Spacing="5">
+                                        <Label Text="{Binding instructor}"
+                                               TextColor="#BDC3C7"/>
+                                        <HorizontalStackLayout Spacing="15">
+                                            <Label Text="{Binding credits, StringFormat='Credits: {0}'}"
+                                                   TextColor="#BDC3C7"/>
+                                            <Label Text="{Binding term, StringFormat='Term: {0}'}"
+                                                   TextColor="#BDC3C7"/>
+                                            <Label Text="{Binding year, StringFormat='Year: {0}'}"
+                                                   TextColor="#BDC3C7"/>
+                                        </HorizontalStackLayout>
+                                    </VerticalStackLayout>
+
+                                    <!-- Register Button -->
+                                    <Button Grid.Row="3"
+                                            Text="Register"
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:HomepageVM}}, Path=RegisterCourseCommand}"
+                                            CommandParameter="{Binding}"
+                                            Margin="0,10,0,0"
+                                            BackgroundColor="#FFD700"
+                                            TextColor="#2C3E50"
+                                            HeightRequest="35"
+                                            CornerRadius="17"/>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+        </Border>
+    </Grid>
+</ContentPage>

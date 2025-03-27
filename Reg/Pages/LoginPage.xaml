@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Reg.Pages.LoginPage"
+             xmlns:viewmodel="clr-namespace:Reg.ViewModel"
+             x:DataType="viewmodel:LoginVM"
+             BackgroundColor="#f0f0f0">
+    
+    <Grid RowDefinitions="*,Auto,*" ColumnDefinitions="*,Auto,*">
+        <Frame Grid.Row="1" Grid.Column="1"
+               BorderColor="Yellow"
+               BackgroundColor="White"
+               CornerRadius="10"
+               Padding="30">
+            <Frame.Shadow>
+                <Shadow Brush="Black"
+                       Offset="0,3"
+                       Radius="15"
+                       Opacity="0.2"/>
+            </Frame.Shadow>
+            
+            <VerticalStackLayout Spacing="25">
+                <Label Text="Student Login"
+                       FontSize="28"
+                       TextColor="DarkGray"
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold"/>
+
+                <Border StrokeShape="RoundRectangle 5"
+                        Stroke="LightGray"
+                        Padding="8,0"
+                        BackgroundColor="#f8f8f8">
+                    <Entry Placeholder="Student ID"
+                           Text="{Binding Username}"
+                           TextColor="DarkGray"
+                           PlaceholderColor="Gray"/>
+                </Border>
+
+                <Border StrokeShape="RoundRectangle 5"
+                        Stroke="LightGray"
+                        Padding="8,0"
+                        BackgroundColor="#f8f8f8">
+                    <Entry Placeholder="Password"
+                           Text="{Binding Password}"
+                           IsPassword="True"
+                           TextColor="DarkGray"
+                           PlaceholderColor="Gray"/>
+                </Border>
+
+                <Button Text="LOGIN"
+                        Command="{Binding LoginCommand}"
+                        BackgroundColor="Yellow"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        CornerRadius="5"
+                        HeightRequest="45"/>
+            </VerticalStackLayout>
+        </Frame>
+    </Grid>
+</ContentPage>
