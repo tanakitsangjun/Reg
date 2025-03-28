@@ -472,3 +472,4 @@ D:\Maui\Reg\Reg\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\MultipleQualifier
 D:\Maui\Reg\Reg\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\CommunityToolkit.Mvvm.dll
 D:\Maui\Reg\Reg\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\student.json
 D:\Maui\Reg\Reg\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\subjects.json
+D:\Maui\Reg\Reg\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\Reg.sourcelink.json

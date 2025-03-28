@@ -1,11 +1,11 @@
 [
     {
       "student_id": "65011212059",
-      "email": "ffolk.th@gmail.com",
+      "email": "65011212059@msu.ac.th",
       "password": "123",
       "first_name": "ธนกฤต",
       "last_name": "แสงจันทร์",
-      "img_url": "https://scontent.fkkc3-1.fna.fbcdn.net/v/t39.30808-6/447667528_1651274048952546_4276528569931265889_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHfZQTmdX37dbNtupcKK_fM6uvIj0cHddfq68iPRwd11wBeOvEVGFIQCNj0lRxmhvMBjvjyaCa6azk2X5BCJxU5&_nc_ohc=49uUdHCmoM8Q7kNvgEWRNVV&_nc_oc=AdkaA5dwjqKOX_vyDsTE6kmdgViBRgKW6zuSPb4Il3QlteNXrLyDlWm_8k5xsglLYH4&_nc_zt=23&_nc_ht=scontent.fkkc3-1.fna&_nc_gid=hCYl7ZaPQe32Boi0VdCj2w&oh=00_AYFYc1MkdWo9pdYl0Cr6-5T6WbQn25e-swfGigM-aGYXQw&oe=67E63E7C",
+      "img_url": "https://scontent.fkkc3-1.fna.fbcdn.net/v/t39.30808-6/319271146_1897248283940498_3947778768529688822_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=w7jKgl-ZfXsQ7kNvgEufbMW&_nc_oc=AdmojBtCWhT5xRNzJgnBONCKQYuytx43CSj24ZamGg0_zraAQZNXKuFE0rdIbkFdDPI&_nc_zt=23&_nc_ht=scontent.fkkc3-1.fna&_nc_gid=2Z3tEXm9uGErF1bRAdLBog&oh=00_AYFGMpdV9h4UKyUZMWLr27Qt6CWJ4mfhMmn-naE_-Aseqw&oe=67EB27F6",
       "faculty": "วิทยาการสารสนเทศ",
       "major": "วิทยาการคอมพิวเตอร์",
       "year": 3,
